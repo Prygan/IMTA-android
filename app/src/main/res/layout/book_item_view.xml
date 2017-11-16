@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fr.android.androidexercises.BookItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <ImageView
+            android:id="@+id/bookCoverImageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="100dp"
+            android:layout_weight="1.00"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/bookTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/bookPriceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookTitleTextView"
+            android:layout_weight="1"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</fr.android.androidexercises.BookItemView>
