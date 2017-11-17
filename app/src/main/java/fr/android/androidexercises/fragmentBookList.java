@@ -34,6 +34,13 @@ public class fragmentBookList extends Fragment {
     @Nullable
     @Override
     public View onCreateView(final  LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_book_list, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://henri-potier.xebia.fr/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -55,7 +62,7 @@ public class fragmentBookList extends Fragment {
                 RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.bookListView);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
                 recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-                recyclerView.setAdapter(new BookAdapter(inflater, books));
+                recyclerView.setAdapter(new BookAdapter(LayoutInflater.from(getContext()), books));
             }
 
             @Override
@@ -63,12 +70,6 @@ public class fragmentBookList extends Fragment {
                 Timber.e(t);
             }
         });
-        return inflater.inflate(R.layout.fragment_book_list, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 
     public interface OnNextListener {
