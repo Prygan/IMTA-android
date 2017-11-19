@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -22,13 +21,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
 
-public class fragmentBookList extends Fragment {
-    private OnNextListener listener;
+public class FragmentBookList extends Fragment {
+    private BookItemListener listener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        listener = (OnNextListener)context;
+        listener = (BookItemListener)context;
     }
 
     @Nullable
@@ -38,7 +37,7 @@ public class fragmentBookList extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -59,10 +58,10 @@ public class fragmentBookList extends Fragment {
                     Timber.d(b.getTitle());
                 }
 
-                RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.bookListView);
-                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-                recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-                recyclerView.setAdapter(new BookAdapter(LayoutInflater.from(getContext()), books));
+                RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.bookListView);
+                recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 1));
+                recyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), LinearLayoutManager.VERTICAL));
+                recyclerView.setAdapter(new BookAdapter(LayoutInflater.from(view.getContext()), books, listener));
             }
 
             @Override
@@ -70,9 +69,5 @@ public class fragmentBookList extends Fragment {
                 Timber.e(t);
             }
         });
-    }
-
-    public interface OnNextListener {
-        void onNext();
     }
 }

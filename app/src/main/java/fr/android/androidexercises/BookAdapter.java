@@ -10,16 +10,18 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 /**
- * Created by prygan on 16/11/17.
+ * Created by Dimitri Saingre on 16/11/17.
  */
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
     private final List<Book> books;
     private final LayoutInflater inflater;
+    private final BookItemListener listener;
 
-    public BookAdapter(LayoutInflater inflater, List<Book> books) {
+    public BookAdapter(LayoutInflater inflater, List<Book> books, BookItemListener listener) {
         this.books = books;
         this.inflater = inflater;
+        this.listener = listener;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @Override
     public void onBindViewHolder(BookViewHolder holder, int position) {
-        ((BookItemView)holder.itemView).bindView(books.get(position));
+        ((BookItemView)holder.itemView).bindView(books.get(position), listener);
     }
 
     @Override

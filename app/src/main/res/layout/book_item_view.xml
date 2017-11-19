@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/bookCoverImageView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:maxHeight="100dp"
             android:layout_weight="1.00"

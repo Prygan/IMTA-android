@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    android:id="@+id/step1TextView"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/text_step1"/>
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" >
+
+            <TextView
+                android:id="@+id/bookTitleTextDetailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:id="@+id/bookCoverImageDetailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="300dp"
+                android:layout_weight="1.00"
+                android:layout_below="@+id/bookTitleTextDetailView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/bookIsbnTextDetailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/bookCoverImageDetailView"/>
+
+            <TextView
+                android:id="@+id/bookPriceTextDetailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/bookIsbnTextDetailView"/>
+
+            <TextView
+                android:id="@+id/bookDescriptionTextDetailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:layout_below="@id/bookPriceTextDetailView"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>
