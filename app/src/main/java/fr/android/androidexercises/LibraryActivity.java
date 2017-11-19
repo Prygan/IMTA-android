@@ -19,14 +19,15 @@ public class LibraryActivity extends AppCompatActivity implements BookItemListen
         Timber.plant(new Timber.DebugTree());
 
         FragmentBookList fragmentBookList;
+
         if(savedInstanceState != null) {
             fragmentBookList = (FragmentBookList) getSupportFragmentManager().findFragmentByTag(FragmentBookList.class.getSimpleName());
             book = savedInstanceState.getParcelable("BOOK");
         } else {
             fragmentBookList = new FragmentBookList();
-
-            displayFragmentBookDetail();
         }
+
+        displayFragmentBookDetail();
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerFrameLayout, fragmentBookList, FragmentBookList.class.getSimpleName())
@@ -42,6 +43,8 @@ public class LibraryActivity extends AppCompatActivity implements BookItemListen
     @Override
     public void onBookItemClick(Book book) {
         this.book = book;
+
+        Timber.i("clicked on " + book.getTitle());
 
         displayFragmentBookDetail();
     }

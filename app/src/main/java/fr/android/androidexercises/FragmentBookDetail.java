@@ -59,6 +59,11 @@ public class FragmentBookDetail extends Fragment {
         }
         else {
             bookTitleTextDetailView.setText("No book selected :)");
+            bookTitleTextDetailView.setText("");
+            bookIsbnTextDetailView.setText("");
+            bookPriceTextDetailView.setText("");
+            bookDescriptionTextDetailView.setText("");
+            bookCoverImageDetailView.setImageResource(0);
         }
     }
 
