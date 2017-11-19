@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.dsaingre;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,8 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-
-import timber.log.Timber;
 
 /**
  * Created by Dimitri Saingre on 16/11/17.

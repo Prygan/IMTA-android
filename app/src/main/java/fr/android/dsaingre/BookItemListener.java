@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.dsaingre;
 
 /**
  * Created by Dimitri Saingre on 18/11/17.

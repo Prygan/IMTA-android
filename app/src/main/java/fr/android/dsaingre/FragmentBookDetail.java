@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.android.dsaingre;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

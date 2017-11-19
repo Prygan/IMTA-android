@@ -1,6 +1,5 @@
-package fr.android.androidexercises;
+package fr.android.dsaingre;
 
-import android.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
